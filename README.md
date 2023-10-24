@@ -29,7 +29,7 @@ Here are some of the key features of the project:
 First , get yourself register to TMDB Website and Fill necessary details to get your key.
 To run this project, you will need to add the following environment variables to your .env file
 
-`VITE_APP_TMDB_TOKEN`:Your Authorization Key
+`VITE_APP_TMDB_TOKEN` : `Your Authorization Key`
 
 
 
