@@ -11,7 +11,7 @@ const HeroBanner = () => {
   const navigate = useNavigate();
   const { url } = useSelector((state) => state.home);
 
-  const { data, loading } = useFetch("/trending/all/week");
+  const { data, loading } = useFetch("/upcoming/all");
   useEffect(() => {
     const bg =
       url.backdrop +
