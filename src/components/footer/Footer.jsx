@@ -33,22 +33,22 @@ const Footer = () => {
         </div>
         <div className="infoText">All Rights Reserved 2023.</div>
         <div className="socialIcons">
-          <a href="https://www.linkedin.com/in/saurav-4b3444204/">
+          <a href="https://www.linkedin.com/in/saurav-4b3444204/" target="_blank">
             <span className="icon">
               <FaLinkedin />
             </span>
           </a>
-          <a href="https://www.instagram.com/_charles_saurav/">
+          <a href="https://www.instagram.com/_charles_saurav/" target="_blank">
             <span className="icon">
               <FaInstagram />
             </span>
           </a>
-          <a href="https://github.com/charlesaurav13">
+          <a href="https://github.com/charlesaurav13" target="_blank">
             <span className="icon">
               <FaGithub />
             </span>
           </a>
-          <a href="https://twitter.com/Saurav21510033">
+          <a href="https://twitter.com/Saurav21510033" target="_blank">
             <span className="icon">
               <FaTwitter />
             </span>
