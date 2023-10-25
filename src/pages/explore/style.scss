@@ -2,9 +2,21 @@
 .explorePage {
     min-height: 700px;
     padding-top: 100px;
-    .resultNotFound {
-        font-size: 24px;
-        color: var(--black-light);
+    .noresult{
+        display: flex;
+        gap: 5px;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+       img{
+        width: 40%;
+        height: 30%;
+       }
+        .resultNotFound {
+            font-size: 24px;
+            color: var(--black-light);
+            
+        }
     }
     .pageHeader {
         display: flex;

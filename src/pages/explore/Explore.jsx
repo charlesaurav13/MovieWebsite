@@ -154,11 +154,15 @@ const Explore = () => {
                                     );
                                 })}
                             </InfiniteScroll>
-                        ) : (
-                            <span className="resultNotFound">
-                                Sorry, Results not found!
-                                <Img src={NoResult}/>
-                            </span>
+                        ) : (<>
+                            <div className="noresult">
+                        <img src={NoResult} alt="No image found" />
+                        <span className="resultNotFound">
+                            Sorry, No Results found!
+                        </span>
+                        </div>
+                            
+                            </>
                         )}
                     </>
                 )}
