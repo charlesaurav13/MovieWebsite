@@ -12,7 +12,7 @@ const HeroBanner = () => {
   const { url } = useSelector((state) => state.home);
 
   const { data, loading } = useFetch("/movie/upcoming/");
-  
+
   useEffect(() => {
     const bg =
       url.backdrop +
@@ -36,7 +36,7 @@ const HeroBanner = () => {
         <div className="heroBannerContent">
           <span className="title">Welcome .</span>
           <span className="subTitle">
-            Millions of movies,TV shows and people to discover. Explore now
+            Millions of movies,TV shows and People to discover. Explore now
           </span>
           <div className="searchInput">
             <input
