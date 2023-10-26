@@ -8,6 +8,7 @@
     z-index: 1;
     display: flex;
     align-items: center;
+    justify-content: center;
     transition: all ease 0.5s;
     z-index: 2;
     &.top {
@@ -104,7 +105,7 @@
     }
 
     .searchBar {
-        width: 100%;
+        width: 40%;
         height: 60px;
         border-radius: 35px;
         background-color: white;
