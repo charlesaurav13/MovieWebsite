@@ -1,5 +1,5 @@
 
-# MovieFlix
+# MovieHub
 
 This project is built using ReactJS and Vite, two popular web development technologies. Its main purpose is to provide users with information about the latest movies. It achieves this by connecting to the TMDB (The Movie Database) API to fetch data about these films.
 
