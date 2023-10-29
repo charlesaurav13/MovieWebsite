@@ -9,13 +9,6 @@ const Footer = () => {
   return (
     <footer className="footer">
       <ContentWrapper>
-        <ul className="menuItems">
-          <li className="menuItem">Terms Of Use</li>
-          <li className="menuItem">Privacy-Policy</li>
-          <li className="menuItem">About</li>
-          <li className="menuItem">Blog</li>
-          <li className="menuItem">FAQ</li>
-        </ul>
         <div className="infoText">
           Welcome to our one-stop movie aficionado's paradise! Our website is
           your ultimate destination for all things related to the latest movies
@@ -31,7 +24,7 @@ const Footer = () => {
           about understanding the intricacies of the characters and their roles
           within the narrative.
         </div>
-        <div className="infoText">All Rights Reserved 2023.</div>
+        <div className="infoText">All Rights Reserved @2023.</div>
         <div className="socialIcons">
           <a href="https://www.linkedin.com/in/saurav-4b3444204/" target="_blank">
             <span className="icon">
