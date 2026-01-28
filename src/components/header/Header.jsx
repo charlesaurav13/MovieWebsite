@@ -1,11 +1,14 @@
+'use client'
+
 import React, { useState, useEffect } from "react";
 import { HiOutlineSearch } from "react-icons/hi";
 import { SlMenu } from "react-icons/sl";
 import { VscChromeClose } from "react-icons/vsc";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useRouter, usePathname } from "next/navigation";
 import "./style.scss";
 import ContentWrapper from "../contentWrapper/ContentWrapper";
 import logo from "../../assets/movie.svg";
+import Image from "next/image";
 
 const Header = () => {
     const [show, setShow] = useState("top");
@@ -13,12 +16,12 @@ const Header = () => {
     const [mobileMenu, setMobileMenu] = useState(false);
     const [query, setQuery] = useState("");
     const [showSearch, setShowSearch] = useState("");
-    const navigate = useNavigate();
-    const location = useLocation();
+    const router = useRouter();
+    const pathname = usePathname();
 
     useEffect(() => {
         window.scrollTo(0, 0);
-    }, [location]);
+    }, [pathname]);
 
     const controlNavbar = () => {
         if (window.scrollY > 200) {
@@ -42,7 +45,7 @@ const Header = () => {
 
     const searchQueryHandler = (event) => {
         if (event.key === "Enter" && query.length > 0) {
-            navigate(`/search/${query}`);
+            router.push(`/search/${query}`);
             setTimeout(() => {
                 setShowSearch(false);
             }, 1000);
@@ -61,9 +64,9 @@ const Header = () => {
 
     const navigationHandler = (type) => {
         if (type === "movie") {
-            navigate("/explore/movie");
+            router.push("/explore/movie");
         } else {
-            navigate("/explore/tv");
+            router.push("/explore/tv");
         }
         setMobileMenu(false);
     };
@@ -71,8 +74,8 @@ const Header = () => {
     return (
         <header className={`header ${mobileMenu ? "mobileView" : ""} ${show}`}>
             <ContentWrapper>
-                <div className="logo" onClick={() => navigate("/")}>
-                    <img src={logo} alt="" />
+                <div className="logo" onClick={() => router.push("/")}>
+                    <Image src={logo} alt="MovieHub Logo" width={100} height={50} />
                 </div>
                 <ul className="menuItems">
                     <li

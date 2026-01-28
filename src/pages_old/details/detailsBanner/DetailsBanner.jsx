@@ -1,5 +1,7 @@
+'use client'
+
 import React, { useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams } from "next/navigation";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
 
@@ -18,7 +20,8 @@ const DetailsBanner = ({ video, crew }) => {
     const [show, setShow] = useState(false);
     const [videoId, setVideoId] = useState(null);
 
-    const { mediaType, id } = useParams();
+    const params = useParams();
+    const { mediaType, id } = params;
     const { data, loading } = useFetch(`/${mediaType}/${id}`);
 
     const { url } = useSelector((state) => state.home);
