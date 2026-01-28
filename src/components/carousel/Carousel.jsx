@@ -1,9 +1,11 @@
+'use client'
+
 import React, { useRef } from "react";
 import {
     BsFillArrowLeftCircleFill,
     BsFillArrowRightCircleFill,
 } from "react-icons/bs";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import { useSelector } from "react-redux";
 import dayjs from "dayjs";
 
@@ -18,7 +20,7 @@ import "./style.scss";
 const Carousel = ({ data, loading, endpoint, title }) => {
     const carouselContainer = useRef();
     const { url } = useSelector((state) => state.home);
-    const navigate = useNavigate();
+    const router = useRouter();
 
     const navigation = (dir) => {
         const container = carouselContainer.current;
@@ -69,7 +71,7 @@ const Carousel = ({ data, loading, endpoint, title }) => {
                                     key={item.id}
                                     className="carouselItem"
                                     onClick={() =>
-                                        navigate(
+                                        router.push(
                                             `/${item.media_type || endpoint}/${
                                                 item.id
                                             }`
