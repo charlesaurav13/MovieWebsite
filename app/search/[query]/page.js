@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import NoResult from '../../../src/assets/no-results.png'
 import '../../../src/pages_old/searchResult/style.scss'
@@ -16,16 +16,16 @@ export default function SearchResultPage({ params }) {
   const [loading, setLoading] = useState(false)
   const { query } = params
 
-  const fetchInitialData = () => {
+  const fetchInitialData = useCallback(() => {
     setLoading(true)
-    fetchDataFromApi(`/search/multi?query=${query}&page=${pageNum}`).then(
+    fetchDataFromApi(`/search/multi?query=${query}&page=1`).then(
       (res) => {
         setData(res)
-        setPageNum((prev) => prev + 1)
+        setPageNum(2)
         setLoading(false)
       }
     )
-  }
+  }, [query])
 
   const fetchNextPageData = () => {
     fetchDataFromApi(`/search/multi?query=${query}&page=${pageNum}`).then(
@@ -44,10 +44,10 @@ export default function SearchResultPage({ params }) {
   }
 
   useEffect(() => {
+    setData(null)
     setPageNum(1)
     fetchInitialData()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [query])
+  }, [query, fetchInitialData])
 
   return (
     <div className="searchResultsPage">
@@ -68,17 +68,23 @@ export default function SearchResultPage({ params }) {
                 hasMore={pageNum <= data?.total_pages}
                 loader={<Spinner />}
               >
-                {data?.results.map((item, index) => {
+                {data?.results.map((item) => {
                   if (item.media_type === 'person') return null
                   return (
-                    <MovieCard key={index} data={item} fromSearch={true} />
+                    <MovieCard key={item.id} data={item} fromSearch={true} />
                   )
                 })}
               </InfiniteScroll>
             </>
           ) : (
             <div className="noresult">
-              <Image src={NoResult} alt="No image found" width={300} height={300} />
+              <Image 
+                src={NoResult} 
+                alt="No image found" 
+                width={300} 
+                height={225}
+                style={{ objectFit: 'contain' }}
+              />
               <span className="resultNotFound">Sorry, No Results found!</span>
             </div>
           )}

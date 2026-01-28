@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import Select from 'react-select'
 import NoResult from '../../../src/assets/no-results.png'
@@ -37,14 +37,14 @@ export default function ExplorePage({ params }) {
 
   const { data: genresData } = useFetch(`/genre/${mediaType}/list`)
 
-  const fetchInitialData = () => {
+  const fetchInitialData = useCallback(() => {
     setLoading(true)
     fetchDataFromApi(`/discover/${mediaType}`, filters).then((res) => {
       setData(res)
-      setPageNum((prev) => prev + 1)
+      setPageNum(2)
       setLoading(false)
     })
-  }
+  }, [mediaType])
 
   const fetchNextPageData = () => {
     fetchDataFromApi(`/discover/${mediaType}?page=${pageNum}`, filters).then(
@@ -69,8 +69,7 @@ export default function ExplorePage({ params }) {
     setSortby(null)
     setGenre(null)
     fetchInitialData()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mediaType])
+  }, [mediaType, fetchInitialData])
 
   const onChange = (selectedItems, action) => {
     if (action.name === 'sortby') {
@@ -141,11 +140,11 @@ export default function ExplorePage({ params }) {
                 hasMore={pageNum <= data?.total_pages}
                 loader={<Spinner />}
               >
-                {data?.results?.map((item, index) => {
+                {data?.results?.map((item) => {
                   if (item.media_type === 'person') return null
                   return (
                     <MovieCard
-                      key={index}
+                      key={item.id}
                       data={item}
                       mediaType={mediaType}
                     />
@@ -155,7 +154,13 @@ export default function ExplorePage({ params }) {
             ) : (
               <>
                 <div className="noresult">
-                  <Image src={NoResult} alt="No image found" width={300} height={300} />
+                  <Image 
+                    src={NoResult} 
+                    alt="No image found" 
+                    width={300} 
+                    height={225}
+                    style={{ objectFit: 'contain' }}
+                  />
                   <span className="resultNotFound">
                     Sorry, No Results found!
                   </span>
