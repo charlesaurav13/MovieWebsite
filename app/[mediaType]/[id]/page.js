@@ -1,11 +1,11 @@
 'use client'
 
 import useFetch from '../../../src/hooks/useFetch'
-import DetailsBanner from '../../../src/pages/details/detailsBanner/DetailsBanner'
-import Cast from '../../../src/pages/details/cast/Cast'
-import VideosSection from '../../../src/pages/details/videosSection/VideosSection'
-import Similar from '../../../src/pages/details/carousels/Similar'
-import Recommendation from '../../../src/pages/details/carousels/Recommendation'
+import DetailsBanner from '../../../src/pages_old/details/detailsBanner/DetailsBanner'
+import Cast from '../../../src/pages_old/details/cast/Cast'
+import VideosSection from '../../../src/pages_old/details/videosSection/VideosSection'
+import Similar from '../../../src/pages_old/details/carousels/Similar'
+import Recommendation from '../../../src/pages_old/details/carousels/Recommendation'
 
 export default function DetailsPage({ params }) {
   const { mediaType, id } = params

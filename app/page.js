@@ -1,11 +1,11 @@
 'use client'
 
-import HeroBanner from '../src/pages/home/heroBanner/HeroBanner'
-import Trending from '../src/pages/home/trending/Trending'
-import Popular from '../src/pages/home/popular/Popular'
-import TopRated from '../src/pages/home/topRated/TopRated'
-import Upcoming from '../src/pages/home/upcoming/Upcoming'
-import '../src/pages/home/style.scss'
+import HeroBanner from '../src/pages_old/home/heroBanner/HeroBanner'
+import Trending from '../src/pages_old/home/trending/Trending'
+import Popular from '../src/pages_old/home/popular/Popular'
+import TopRated from '../src/pages_old/home/topRated/TopRated'
+import Upcoming from '../src/pages_old/home/upcoming/Upcoming'
+import '../src/pages_old/home/style.scss'
 
 export default function Home() {
   return (

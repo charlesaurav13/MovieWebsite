@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import NoResult from '../../../src/assets/no-results.png'
-import '../../../src/pages/searchResult/style.scss'
+import '../../../src/pages_old/searchResult/style.scss'
 import { fetchDataFromApi } from '../../../src/utils/api'
 import ContentWrapper from '../../../src/components/contentWrapper/ContentWrapper'
 import MovieCard from '../../../src/components/movieCard/MovieCard'

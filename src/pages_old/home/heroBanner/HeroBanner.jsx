@@ -1,6 +1,8 @@
+'use client'
+
 import React, { useEffect, useState } from "react";
 import "./style.scss";
-import { useNavigate } from "react-router-dom";
+import { useRouter } from "next/navigation";
 import useFetch from "../../../hooks/useFetch";
 import { useSelector } from "react-redux";
 import Img from "../../../components/lazyLoadImage/Img";
@@ -8,7 +10,7 @@ import ContentWrapper from "../../../components/contentWrapper/ContentWrapper";
 const HeroBanner = () => {
   const [background, setBackground] = useState("");
   const [query, setQuery] = useState("");
-  const navigate = useNavigate();
+  const router = useRouter();
   const { url } = useSelector((state) => state.home);
 
   const { data, loading } = useFetch("/movie/upcoming/");
@@ -21,7 +23,7 @@ const HeroBanner = () => {
   }, [data]);
   const searchQueryHandler = (event) => {
     if (event.key === "Enter" && query.length > 0) {
-      navigate(`/search/${query}`);
+      router.push(`/search/${query}`);
     }
   };
   return (

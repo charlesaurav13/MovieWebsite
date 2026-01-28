@@ -1,5 +1,5 @@
 import ContentWrapper from '../src/components/contentWrapper/ContentWrapper'
-import '../src/pages/404/style.scss'
+import '../src/pages_old/404/style.scss'
 
 export default function NotFound() {
   return (
